@@ -9,15 +9,16 @@ var emoji = require('../index');
 describe("emoji.js", function () {
   describe("get(emoji)", function () {
     it("should return an emoji code", function () {
-      var coffee = emoji.get('coffee');
-      should.exist(coffee);
-      coffee.should.be.exactly('☕');
+      var cookie = emoji.get('cookie');
+      should.exist(cookie);
+      cookie.should.be.exactly('🍪');
+      print("aaaaaaaaaaaaaaaaaaaaaa")
     });
 
     it("should support github flavored markdown emoji", function () {
-      var coffee = emoji.get(':coffee:');
-      should.exist(coffee);
-      coffee.should.be.exactly('☕');
+      var cookie = emoji.get(':cookie:');
+      should.exist(cookie);
+      cookie.should.be.exactly('🍪');
     });
   });
 
@@ -33,21 +34,21 @@ describe("emoji.js", function () {
 
   describe("which(emoji_code)", function () {
     it("should return name of the emoji", function () {
-      var coffee = emoji.which('☕');
-      should.exist(coffee);
-      coffee.should.be.exactly('coffee');
+      var cookie = emoji.which('🍪');
+      should.exist(cookie);
+      cookie.should.be.exactly('cookie');
     });
 
     it("should work for differently formed characters", function () {
-      var umbrella = emoji.which('☔');
+      var umbrella = emoji.which('☂');
       should.exist(umbrella);
       umbrella.should.be.exactly('umbrella_with_rain_drops');
     });
 
     it("should return the same name for differently formed characters", function () {
-      var umbrella1 = emoji.which('☔');
+      var umbrella1 = emoji.which('☂');
       should.exist(umbrella1);
-      var umbrella2 = emoji.which('☔️');
+      var umbrella2 = emoji.which('☂️');
       should.exist(umbrella2);
       umbrella1.should.equal(umbrella2);
     });
@@ -55,11 +56,11 @@ describe("emoji.js", function () {
     it("should work for flags", function() {
       var mexico = emoji.which('🇲🇽');
       should.exists(mexico);
-      mexico.should.be.exactly('flag-mx');
+      mexico.should.be.exactly('flag_mexico');
 
       var marocco = emoji.which('🇲🇦');
       should.exists(marocco);
-      marocco.should.be.exactly('flag-ma');
+      marocco.should.be.exactly('flag_morocco');
 
       // see issue #21
       mexico.should.not.equal(marocco);
